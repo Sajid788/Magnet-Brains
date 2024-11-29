@@ -1,24 +1,36 @@
-:root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
   --color-1: #242526;
   --color-2: white;
-  --color-3: #ff0000; /* Changed to red for consistency */
+  --color-3: #ff0000; 
   --color-4: gray;
   --color-5: #eb4034;
   --color-6: #333;
   --shadow-color: rgba(0, 0, 0, 0.3);
   --border-radius: 12px;
   --transition-duration: 0.5s;
-  --form-width: 600px; /* Set form width to 600px */
-}
+  --form-width: 600px; 
+} */
+
 
 body {
+  background-color: black; /* Set background to black */
+  color: black; /* Set text color to white */
+  font-family: 'Helvetica Neue', sans-serif; /* Optional: Set your preferred font */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* body {
   font-family: 'Helvetica Neue', sans-serif;
   background-color: var(--color-1);
   color: var(--color-2);
   overflow-x: hidden;
-}
+} */
 
-.background_container_login {
+/* .background_container_login {
   background: linear-gradient(to bottom right, #ff0000, #ffffff);
   height: 750px;
   max-height: 100vh;
@@ -155,10 +167,10 @@ section .form {
   color: var(--color-5);
   margin-top: 20px;
   animation: fadeIn var(--transition-duration) ease-out;
-}
+} */
 
 /* Responsive login section */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   section {
     max-width: 90%;
     margin: 0 auto;
@@ -168,4 +180,4 @@ section .form {
   .background_container_login {
     padding-top: 20px;
   }
-}
+} */
