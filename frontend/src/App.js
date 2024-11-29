@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./Authentication/Login";
+import "./App.css";
+import User from "./components/User/User";
+import Admin from "./components/Admin/Admin";
+import AddEmployee from "./components/Admin/pages/AddEmployee";
+import AddTask from "./components/Admin/pages/AddTask";
+import AllTasks from "./components/Admin/pages/AllTasks";
+import AllUsers from "./components/Admin/pages/AllUsers";
+import UpdateTask from "./components/Admin/pages/UpdateTask";
+import TaskDetail from "./components/Admin/pages/TaskDetail";
+import Signup from "./Authentication/Signup";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/user" element={<User />} />
+        <Route path="/admin" element={<Admin />}>
+          
+          <Route index element={<AllUsers />} />
+          <Route path="add-user" element={<AddEmployee />} />
+          <Route path="all-users" element={<AllUsers />} />
+          <Route path="all-tasks" element={<AllTasks />} />
+          <Route path="add-task" element={<AddTask />} />
+          <Route path="updatetask/:_id" element={<UpdateTask />} />
+          <Route path="taskdetail/:_id" element={<TaskDetail />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
