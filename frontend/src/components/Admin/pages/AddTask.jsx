@@ -121,6 +121,7 @@ const AddTask = () => {
               id="isAdmin"
               value={input.assign.id}
               onChange={handleChange}
+              className="py-2 w-40 rounded-md bg-[#262629]"
             >
               <option value="">Select User</option>
               {user.map((user) => (
@@ -140,6 +141,7 @@ const AddTask = () => {
               id="isAdmin"
               value={input.priority}
               onChange={handleChange}
+              className="py-2 w-40 rounded-md bg-[#262629]"
             >
               <option value="">Select Priority</option>
               <option className="medium-priority" value="Medium">Medium</option>
@@ -157,6 +159,7 @@ const AddTask = () => {
               id="isAdmin"
               value={input.status}
               onChange={handleChange}
+              className="py-2 w-40 rounded-md bg-[#262629]"
             >
               <option value="">Select Status</option>
               <option value="Pending">Pending</option>

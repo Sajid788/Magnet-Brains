@@ -95,6 +95,7 @@ const UpdateTask = () => {
                 name="priority"
                 value={input.priority}
                 onChange={handleChange}
+                className="py-2 w-40 rounded-md bg-[#262629]"
               >
                 <option className="medium-priority" value="Medium">Medium</option>
                 <option className="high-priority" value="High">High</option>
@@ -108,6 +109,7 @@ const UpdateTask = () => {
                 name="status"
                 value={input.status}
                 onChange={handleChange}
+                className="py-2 w-40 rounded-md bg-[#2a2a34]"
               >
                 <option value="Pending">Pending</option>
                 <option value="InProgress">In Progress</option>

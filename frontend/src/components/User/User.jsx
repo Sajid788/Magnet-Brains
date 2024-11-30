@@ -13,6 +13,12 @@ const User = () => {
   const [isActive, setIsActive] = useState(false); // Password field
   const [taskId, setTaskId] = useState(""); // Stores the ID of the task being updated
   const [updatedStatus, setUpdatedStatus] = useState(""); // Stores the updated task status
+  
+    const togglePopup = () => {
+    setIsActive(!isActive);
+  };
+
+  
 
   // Redux setup to access global state
   const dispatch = useDispatch();
@@ -69,6 +75,7 @@ const User = () => {
       });
       toast.success("Task updated successfully"); // Notify user of success
       toggleClass(); // Close the confirmation box
+      togglePopup();
       getTasks(); // Refresh task list
     } catch (err) {
       console.log(err);
@@ -120,6 +127,8 @@ const User = () => {
                         onClick={() => {
                           setTaskId(key._id); // Set the task ID to update
                           toggleClass(); // Open the confirmation box
+                 
+              togglePopup(); // Open the popup
                         }}
                       >
                         <MdEditSquare className="update-task" />
@@ -133,34 +142,48 @@ const User = () => {
 
           {/* Confirmation box for updating task status */}
           {isActive && (
-            <div className="confirmation-box">
-              <h2>Confirm Please</h2>
-              <hr size="1" color="brown" />
-              <p>Do you really want to update the status of this task?</p>
-              <div className="input_container">
-                <label>Status:</label>
-                <br />
-                <select
-                  name="status"
-                  id="isAdmin"
-                  value={updatedStatus}
-                  onChange={(e) => setUpdatedStatus(e.target.value)}
-                >
-                  <option value="Pending">Pending</option>
-                  <option value="InProgress">In Progress</option>
-                  <option value="Completed">Completed</option>
-                </select>
-              </div>
-              <div className="confirmation-box-buttons">
-                <button style={{ backgroundColor: "green" }} onClick={updateTaskStatus}>
-                  Yes
-                </button>
-                <button style={{ backgroundColor: "red" }} onClick={toggleClass}>
-                  No
-                </button>
-              </div>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-80">
+            <h2 className="text-xl font-semibold text-gray-800 mb-4">Confirm Please</h2>
+            <hr className="border-brown-500 mb-4" />
+            <p className="text-gray-600 mb-4">
+              Do you really want to update the status of this task?
+            </p>
+
+            <div className="mb-6">
+              <label htmlFor="status" className="block text-gray-700 mb-2">
+                Status:
+              </label>
+              <select
+                name="status"
+                id="status"
+                value={updatedStatus}
+                onChange={(e) => setUpdatedStatus(e.target.value)}
+                className="w-full p-2 border rounded focus:outline-none text-neutral-700 focus:ring focus:ring-blue-300"
+              >
+                <option value="Pending">Pending</option>
+                <option value="InProgress">In Progress</option>
+                <option value="Completed">Completed</option>
+              </select>
             </div>
-          )}
+
+            <div className="flex justify-between">
+              <button
+                className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition"
+                onClick={updateTaskStatus}
+              >
+                Yes
+              </button>
+              <button
+                className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition"
+                onClick={togglePopup}
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
         </div>
       </div>
     );

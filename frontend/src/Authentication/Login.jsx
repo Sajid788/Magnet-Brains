@@ -91,7 +91,7 @@ const Login = () => {
   };
 
   return (
-    <div className="background_container_login h-screen bg-slate-50 ">
+    <div className=" h-screen bg-slate-50 ">
       <div className="flex justify-center gap-20  h-full items-center w-[90%] m-auto  ">
         <div className=" max-w-md ">
           <div className="flex items-center justify-center">
@@ -118,7 +118,7 @@ const Login = () => {
             Keep all your credentials safe!
           </p>
           <form className="form mt-8 space-y-5" onSubmit={handleSubmit}>
-            <div className="input_container">
+            <div >
               <label className="text-neutral-500">Email</label>
               <input
                 placeholder="Enter Your Email"
@@ -155,7 +155,7 @@ const Login = () => {
             {error && <p className="error text-neutral-700">{error}</p>}
             <div >
               <button
-                className="btn mt-4 w-full py-2 bg-[#2f59d5] rounded-full "
+                className=" mt-4 w-full py-2 bg-[#2f59d5] rounded-full "
                 disabled={loading}
               >
                 {loading ? "Logging in ..." : "Login"}

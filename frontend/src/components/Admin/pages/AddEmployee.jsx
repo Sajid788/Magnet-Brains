@@ -97,6 +97,7 @@ const AddEmployee = () => {
               name="isAdmin"
               value={input.isAdmin}
               onChange={handleChange}
+              className="py-2 w-40 rounded-md bg-[#262629]"
             >
               <option value={false}>No</option>
               <option value={true}>Yes</option>

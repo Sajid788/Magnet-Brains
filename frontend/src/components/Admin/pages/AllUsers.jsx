@@ -13,10 +13,25 @@ const AllUsers = () => {
   const [isActive, setIsActive] = useState(false);
   // State to store the id of the user to be deleted
   const [taskId, setTaskid] = useState("");
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
   // Redux selector to check if the current user is an admin
   const isAdmin = useSelector((state) => state.isAdmin);
   // Hook to navigate programmatically
   const navigate = useNavigate();
+
+
+  // Function to toggle popup visibility
+  const togglePopup = () => {
+    setIsPopupVisible(!isPopupVisible);
+  };
+
+  // Function to handle user deletion
+  const deleteUser1 = () => {
+    // Add delete logic here
+    console.log("User deleted!");
+    togglePopup(); // Close the popup after deleting
+  };
+
 
   // Function to toggle the confirmation box
   const toggleClass = () => {
@@ -46,6 +61,7 @@ const AllUsers = () => {
       );
       toast.success("User deleted successfully");
       toggleClass();
+      togglePopup();
       getUser(); // Fetch users again after deletion
     } catch (err) {
       console.log(err);
@@ -78,8 +94,8 @@ const AllUsers = () => {
                     <MdDeleteForever
                       style={{ color: "darkred", fontSize: "25px" }}
                       onClick={() => {
-                        setTaskid(user._id);
-                        toggleClass();
+                        setTaskid(user._id); // Set the selected user's ID
+                        togglePopup(); // Open the popup
                       }}
                     />
                   </td>
@@ -90,21 +106,30 @@ const AllUsers = () => {
         </table>
 
         {/* Confirmation box for deletion */}
-        {isActive && (
-          <div className="confirmation-box">
-            <h2>Confirm Deletion</h2>
-            <hr />
-            <p>Are you sure you want to delete this user?</p>
-            <div className="confirmation-box-buttons">
-              <button className="yes" onClick={deleteUser}>
+        {isPopupVisible && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-80">
+            <h2 className="text-xl font-semibold text-gray-800 mb-4">Confirm Deletion</h2>
+            <p className="text-gray-600 mb-6">
+              Are you sure you want to delete this user?
+            </p>
+            <div className="flex justify-between">
+              <button
+                className="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition"
+                onClick={deleteUser}
+              >
                 Yes
               </button>
-              <button className="no" onClick={toggleClass}>
+              <button
+                className="bg-gray-300 text-gray-800 py-2 px-4 rounded hover:bg-gray-400 transition"
+                onClick={togglePopup}
+              >
                 No
               </button>
             </div>
           </div>
-        )}
+        </div>
+      )}
       </div>
     );
   } else {

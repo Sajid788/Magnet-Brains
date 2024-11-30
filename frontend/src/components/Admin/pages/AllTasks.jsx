@@ -12,6 +12,8 @@ const AllTasks = () => {
   const [task, setTask] = useState([]);
   const [isActive, setIsActive] = useState(false);
   const [taskId, setTaskid] = useState("");
+ 
+  
   
   // React Router hook for navigation
   const navigate = useNavigate();
@@ -84,6 +86,7 @@ const AllTasks = () => {
                   <td data-column="Status">{key.status}</td>
                   <td data-column="Action">
                     {/* Delete Task Icon */}
+                    <div className="flex">
                     <MdDeleteForever
                       style={{ color: "darkred", cursor: "pointer" }}
                       fontSize="25px"
@@ -117,6 +120,7 @@ const AllTasks = () => {
                         navigate("/admin/taskdetail/" + key._id);
                       }}
                     />
+                    </div>
                   </td>
                 </tr>
               );
@@ -126,20 +130,32 @@ const AllTasks = () => {
         
         {/* Confirmation Box */}
         {isActive && (
-          <div className="confirmation-box">
-            <h2>Confirm Deletion</h2>
-            <hr />
-            <p>Are you sure you want to delete this task?</p>
-            <div className="confirmation-box-buttons">
-              <button className="yes" onClick={deleteTask}>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-80">
+            <h2 className="text-xl font-semibold text-gray-800 mb-4">
+              Confirm Deletion
+            </h2>
+            <hr className="border-brown-500 mb-4" />
+            <p className="text-gray-600 mb-6">
+              Are you sure you want to delete this task?
+            </p>
+            <div className="flex justify-between">
+              <button
+                className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition"
+                onClick={deleteTask}
+              >
                 Yes
               </button>
-              <button className="no" onClick={toggleClass}>
+              <button
+                className="bg-gray-300 text-gray-800 py-2 px-4 rounded hover:bg-gray-400 transition"
+                onClick={toggleClass}
+              >
                 No
               </button>
             </div>
           </div>
-        )}
+        </div>
+      )}
       </div>
     </>
   );

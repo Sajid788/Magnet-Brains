@@ -30,7 +30,7 @@ body {
   overflow-x: hidden;
 } */
 
-/* .background_container_login {
+.background_container_login {
   background: linear-gradient(to bottom right, #ff0000, #ffffff);
   height: 750px;
   max-height: 100vh;
@@ -167,10 +167,10 @@ section .form {
   color: var(--color-5);
   margin-top: 20px;
   animation: fadeIn var(--transition-duration) ease-out;
-} */
+}
 
 /* Responsive login section */
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   section {
     max-width: 90%;
     margin: 0 auto;
@@ -180,4 +180,4 @@ section .form {
   .background_container_login {
     padding-top: 20px;
   }
-} */
+}

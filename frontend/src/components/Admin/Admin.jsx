@@ -12,7 +12,7 @@ import { setIsAdmin, setIsLogin, setUser } from "../../Slices/AuthSlice";
 const Admin = () => {
 // Redux setup to access dispatch and global state
   const dispatch = useDispatch();
-  const isAdmin = useSelector((state) => state.isAdmin);  // Check if the user is an admin
+  const isAdmin = useSelector((state) => state.isAdmin);  
   const navigate = useNavigate();
 
   // Logout function
@@ -46,7 +46,8 @@ const Admin = () => {
   // Render admin dashboard if isAdmin is true, otherwise redirect to home
   if (isAdmin) {
     return (
-      <div className="admin-layout">
+      <div className="admin-layout border">
+
         <div className="sider">
           <div className="dashboard-title">
             <h2>Dashboard</h2>
@@ -86,6 +87,7 @@ const Admin = () => {
             </li>
           </ul>
         </div>
+
         {/* Main content area */}
         <div className="main-layout">
           <header className="header">
@@ -98,9 +100,9 @@ const Admin = () => {
       </div>
     );
   } else {
-    // Redirect to home page if not logged in as admin
+    
     navigate("/");
-    // Return null to avoid rendering anything if not logged in as admin
+    
     return null;
   }
 };

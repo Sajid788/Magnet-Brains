@@ -103,7 +103,7 @@ const Signup = () => {
           </p>
           <form className="form mt-4 space-y-5" onSubmit={handleSubmit}>
             <div className="flex gap-2">
-            <div className="input_container">
+            <div >
               <label className="text-neutral-500">Name</label>
               <input
                 placeholder="Enter Your Name"
@@ -114,7 +114,7 @@ const Signup = () => {
                 className="py-2 w-full px-4 rounded-full text-neutral-800 border-2 border-[#2f59d5] mt-1 focus:outline-none"
               />
             </div>
-            <div className="input_container">
+            <div >
               <label className="text-neutral-500">Email</label>
               <input
                 placeholder="Enter Your Email"
@@ -127,7 +127,7 @@ const Signup = () => {
             </div>
             </div>
 
-            <div className="input_container">
+            <div >
               <label className="text-neutral-500">Title</label>
               <input
                 placeholder="Enter Your Title"
@@ -178,7 +178,7 @@ const Signup = () => {
             {error && <p className="error text-neutral-700">{error}</p>}
             <div>
               <button
-                className="btn mt-4 w-full py-2 bg-[#2f59d5] rounded-full"
+                className=" mt-4 w-full py-2 bg-[#2f59d5] rounded-full"
                 disabled={loading}
               >
                 {loading ? "Signing up ..." : "Signup"}
