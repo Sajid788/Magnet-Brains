@@ -43,3 +43,27 @@ The Task Management System is a web application designed to help users efficient
    git clone https://github.com/your-username/task-management-system.git
    cd task-management-system
 ## ScreenShots
+
+# Signup
+![Screenshot 2024-11-30 130336](https://github.com/user-attachments/assets/85e95333-84d1-4ea4-80d7-c53f44eb4f5c)
+
+# Login
+![Screenshot 2024-11-30 130434](https://github.com/user-attachments/assets/19b02b4b-8d5e-4fac-b82b-b7ffe9e1f1e9)
+
+# Admin User list Dashboard
+![Screenshot 2024-11-30 130528](https://github.com/user-attachments/assets/7ce31ef7-4256-437f-a595-46c7ef7df3ae)
+
+# Admin Task Assigned
+![Screenshot 2024-11-30 130706](https://github.com/user-attachments/assets/da7bae61-6660-49fa-b470-648cd686c2eb)
+
+# Admin Add  Task 
+![Screenshot 2024-11-30 130840](https://github.com/user-attachments/assets/f58f2e23-7d96-4cef-a6c1-d76ac6b973cc)
+
+# user task Assigned
+![Screenshot 2024-11-30 131107](https://github.com/user-attachments/assets/eb05b065-4c88-4884-8be0-ac24a9334d7e)
+
+
+
+
+
+
